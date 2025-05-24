@@ -1,4 +1,4 @@
-#include "circulo.h"
+#include "../header/circulo.h"
 
 Circulo::Circulo(double x = 0, double y = 0, double r = 0) : pos(x, y), r(r){}
 

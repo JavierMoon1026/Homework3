@@ -16,6 +16,6 @@ class Elipse{
         double getB() const;
 
         void setPos(Punto posval);
-        void setR(double aval);
-        void setR(double bval);
+        void setA(double aval);
+        void setB(double bval);
     };

@@ -1,4 +1,4 @@
-#include "punto.h"
+#include "../header/punto.h"
 
 Punto::Punto(double x = 0, double y = 0) : x(x), y(y){}
 
