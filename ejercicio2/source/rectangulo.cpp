@@ -1,6 +1,6 @@
 #include "../header/rectangulo.h"
 
-Rectangulo::Rectangulo(double x = 0, double y = 0, double a = 0, double l = 0) : pos(x, y), ancho(a), largo(l){}
+Rectangulo::Rectangulo(double x, double y, double a, double l) : pos(x, y), ancho(a), largo(l){}
 
 Punto Rectangulo::getPos() const {return pos;}
 double Rectangulo::getA() const {return ancho;}

@@ -1,6 +1,6 @@
 #include "../header/circulo.h"
 
-Circulo::Circulo(double x = 0, double y = 0, double r = 0) : pos(x, y), r(r){}
+Circulo::Circulo(double x, double y, double r) : pos(x, y), r(r){}
 
 Punto Circulo::getPos() const {return pos;}
 double Circulo::getR() const {return r;}

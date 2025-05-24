@@ -1,6 +1,6 @@
 #include "../header/punto.h"
 
-Punto::Punto(double x = 0, double y = 0) : x(x), y(y){}
+Punto::Punto(double x, double y) : x(x), y(y){}
 
 double Punto::getX() const {return x;}
 double Punto::getY() const {return y;}
