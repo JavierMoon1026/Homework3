@@ -1,15 +1,17 @@
 #include "../header/presion.h"
 
-
+//se implementan los constructores
 Presion::Presion() : presionEstatica(0), presionDinamica(0), MedicionBase(0.0f) {}
 Presion::Presion(const Presion& other) : presionEstatica(other.presionEstatica), presionDinamica(other.presionDinamica), MedicionBase(*other.tiempoMedicion) {}
 Presion::Presion(float pe, float pd, float t) : presionEstatica(pe), presionDinamica(pd), MedicionBase(t) {}
 
+//se implementa la funcion imprimir()
 void Presion::imprimir() const {
     std::cout << "Presion: Estatica = " << presionEstatica << ", Dinamica = " << presionDinamica
               << " Tiempo: " << *tiempoMedicion << endl;
 }
 
+//se implementan las funciones de serializar y deserializar
 void Presion::serializar(ostream& out) const {
     out.write(reinterpret_cast<const char*>(&presionEstatica), sizeof(presionEstatica));
     out.write(reinterpret_cast<const char*>(&presionDinamica), sizeof(presionDinamica));

@@ -1,14 +1,17 @@
 #include "../header/posicion.h"
 
-Posicion::Posicion() : latitud(0), longitud(0), altitud(0), MedicionBase(0.0f) {}
+//se implementan los constructores
+Posicion::Posicion() : latitud(0), longitud(0), altitud(0), MedicionBase(0.0f){}
 Posicion::Posicion(const Posicion& other) : latitud(other.latitud), longitud(other.longitud), altitud(other.altitud), MedicionBase(*other.tiempoMedicion) {}
 Posicion::Posicion(float lat, float lon, float alt, float t) : latitud(lat), longitud(lon), altitud(alt), MedicionBase(t) {}
 
-void Posicion::imprimir() const {
+//se implementa la funcion imprimir()
+void Posicion::imprimir() const{
     std::cout << "Posicion: (" << latitud << ", " << longitud << ", " << altitud << ")"
               << " Tiempo: " << *tiempoMedicion << endl;
 }
 
+//se implementan las funciones de serializar y deserializar
 void Posicion::serializar(ostream& out) const{
     out.write(reinterpret_cast<const char*>(&latitud), sizeof(latitud));
     out.write(reinterpret_cast<const char*>(&longitud), sizeof(longitud));

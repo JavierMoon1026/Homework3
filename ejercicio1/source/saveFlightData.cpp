@@ -2,9 +2,11 @@
 #include <fstream>
 #include <iostream>
 
+//se implementan los constructores
 SaveFlightData::SaveFlightData() {}
 SaveFlightData::SaveFlightData(const Posicion& po, const Presion& pr) : posicion(po), presion(pr) {}
 
+//se implementan las funciones de serializar y deserializar
 void SaveFlightData::serializar(const string& filename) const{
     ofstream out(filename, ios::binary);
     if (!out) {
@@ -27,6 +29,7 @@ void SaveFlightData::deserializar(const string& filename){
     in.close();
 }
 
+//se implementa la funcion imprimir()
 void SaveFlightData::imprimir() const {
     posicion.imprimir();
     presion.imprimir();
