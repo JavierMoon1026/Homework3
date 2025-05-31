@@ -1,15 +1,18 @@
 #include "presion.h"
 #include "posicion.h"
 
+using namespace std;
+
 class SaveFlightData {
-    Posicion posicion();
-    Presion presion();
+    private:
+        Posicion posicion;
+        Presion presion;
 
-public:
-    SaveFlightData(const Posicion& p, const Presion& q);
-    SaveFlightData();
+    public:
+        SaveFlightData();
+        SaveFlightData(const Posicion& po, const Presion& pr);
 
-    void serializar(const std::string& nombreArchivo) const;
-    void deserializar(const std::string& nombreArchivo);
-    void imprimir() const;
+        void serializar(const string& nombreArchivo) const;
+        void deserializar(const string& nombreArchivo);
+        void imprimir() const;
 };

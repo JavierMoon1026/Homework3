@@ -2,32 +2,32 @@
 #include <fstream>
 #include <iostream>
 
-SaveFlightData::SaveFlightData(const Posicion& p, const Presion& q) : posicion(p), presion(q) {}
+SaveFlightData::SaveFlightData() {}
+SaveFlightData::SaveFlightData(const Posicion& po, const Presion& pr) : posicion(po), presion(pr) {}
 
-SaveFlightData::SaveFlightData() = default;
-
-void SaveFlightData::serializar(const std::string& nombreArchivo) const {
-    std::ofstream out(nombreArchivo, std::ios::binary);
+void SaveFlightData::serializar(const string& filename) const {
+    ofstream out(filename, ios::binary);
     if (!out) {
-        std::cerr << "Error al abrir archivo para escribir.\n";
+        cerr << "Error abriendo el archivo para escritura\n";
         return;
     }
     posicion.serializar(out);
     presion.serializar(out);
+    out.close();
 }
 
-void SaveFlightData::deserializar(const std::string& nombreArchivo) {
-    std::ifstream in(nombreArchivo, std::ios::binary);
+void SaveFlightData::deserializar(const string& filename) {
+    ifstream in(filename, ios::binary);
     if (!in) {
-        std::cerr << "Error al abrir archivo para leer.\n";
+        cerr << "Error abriendo el archivo para lectura\n";
         return;
     }
     posicion.deserializar(in);
     presion.deserializar(in);
+    in.close();
 }
 
 void SaveFlightData::imprimir() const {
-    std::cout << " Datos del Vuelo" << std::endl;
     posicion.imprimir();
     presion.imprimir();
 }

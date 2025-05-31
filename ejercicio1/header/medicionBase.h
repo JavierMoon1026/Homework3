@@ -1,12 +1,16 @@
+#pragma once
 #include "iMediciones.h"
 #include <memory>
 
-class MedicionBase : public IMediciones {
-protected:
-    std::unique_ptr<float> tiempoMedicion;
+using namespace std;
 
-public:
-    MedicionBase(float t);
-    float getTiempo() const;
-    virtual void imprimir() const = 0;
+class MedicionBase : public IMediciones {
+    protected:
+        unique_ptr<float> tiempoMedicion;
+    public:
+        MedicionBase();
+        MedicionBase(float t);
+        float getTiempo() const;
+        virtual void imprimir() const = 0;
+        virtual ~MedicionBase() = default;
 };
