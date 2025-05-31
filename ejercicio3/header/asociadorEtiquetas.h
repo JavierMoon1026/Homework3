@@ -3,15 +3,15 @@
 #include <iostream>
 #include <sstream>
 
-class JsonBuilder {
-private:
-    DataBuilder& data;
+class Asociador{
+    private:
+        Generador& data;
 
-    string serialize_doubles(const vector<double>& vec);
-    string serialize_strings(const vector<string>& vec);
-    string serialize_lists(const vector<vector<int>>& lists);
+        string serializar_doubles(const vector<double>& vec);
+        string serializar_strings(const vector<string>& vec);
+        string serializar_lists(const vector<vector<int>>& lists);
 
-public:
-    JsonBuilder(DataBuilder& builder);
-    void print_json();
-};
+    public:
+        Asociador(Generador& builder);
+        void print_json();
+    };

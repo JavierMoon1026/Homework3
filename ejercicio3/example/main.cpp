@@ -3,19 +3,19 @@
 #include <iostream>
 
 int main() {
-    DataBuilder builder;
+    Generador generador;
 
-    builder.add(1.3);
-    builder.add(2.1);
-    builder.add(3.2);
+    generador.agregar(1.3);
+    generador.agregar(2.1);
+    generador.agregar(3.2);
 
-    builder.add(string("Hola"));
-    builder.add(string("Mundo"));
+    generador.agregar(string("Hola"));
+    generador.agregar(string("Mundo"));
 
-    builder.add_list({1, 2});
-    builder.add_list({3, 4});
+    generador.agregar_lista({1, 2});
+    generador.agregar_lista({3, 4});
 
-    JsonBuilder json(builder);
+    Asociador json(generador);
     json.print_json();
 
     return 0;

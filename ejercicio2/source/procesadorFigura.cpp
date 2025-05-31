@@ -12,7 +12,7 @@ class ProcesadorFigura{
 };
 
 template<>
-class ProcesadorFigura<Circulo> {
+class ProcesadorFigura<Circulo>{
     public:
         static double calcArea(Circulo& c){
             return PI * c.getR() * c.getR();
@@ -20,7 +20,7 @@ class ProcesadorFigura<Circulo> {
 };
 
 template<>
-class ProcesadorFigura<Elipse> {
+class ProcesadorFigura<Elipse>{
     public:
         static double calcArea(Elipse& e){
             return PI * e.getA() * e.getB();
@@ -28,7 +28,7 @@ class ProcesadorFigura<Elipse> {
 };
 
 template<>
-class ProcesadorFigura<Rectangulo> {
+class ProcesadorFigura<Rectangulo>{
     public:
         static double calcArea(Rectangulo& r){
             return r.getA() * r.getL();

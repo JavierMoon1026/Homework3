@@ -1,0 +1,11 @@
+Ejercicio1:
+    - g++ -std=c++14 -o main ejercicio1/example/main.cpp ejercicio1/source/*.cpp
+    - ./main
+
+Ejercicio2:
+    - g++ -std=c++11 -o main ejercicio2/example/main.cpp ejercicio2/source/*.cpp
+    - ./main
+
+Ejercicio3:
+    - g++ -std=c++17 -o main ejercicio3/example/main.cpp ejercicio3/source/*.cpp
+    - ./main

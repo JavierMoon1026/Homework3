@@ -1,8 +1,9 @@
 #include "../header/asociadorEtiquetas.h"
+#include <fstream>
 
-JsonBuilder::JsonBuilder(DataBuilder& builder) : data(builder) {}
+Asociador::Asociador(Generador& builder) : data(builder) {}
 
-string JsonBuilder::serialize_doubles(const vector<double>& vec) {
+string Asociador::serializar_doubles(const vector<double>& vec) {
     ostringstream oss;
     oss << "[";
     for (size_t i = 0; i < vec.size(); ++i) {
@@ -13,7 +14,7 @@ string JsonBuilder::serialize_doubles(const vector<double>& vec) {
     return oss.str();
 }
 
-string JsonBuilder::serialize_strings(const vector<string>& vec) {
+string Asociador::serializar_strings(const vector<string>& vec) {
     ostringstream oss;
     oss << "[";
     for (size_t i = 0; i < vec.size(); ++i) {
@@ -24,7 +25,7 @@ string JsonBuilder::serialize_strings(const vector<string>& vec) {
     return oss.str();
 }
 
-string JsonBuilder::serialize_lists(const vector<vector<int>>& lists) {
+string Asociador::serializar_lists(const vector<vector<int>>& lists) {
     ostringstream oss;
     oss << "[\n";
     for (size_t i = 0; i < lists.size(); ++i) {
@@ -41,10 +42,24 @@ string JsonBuilder::serialize_lists(const vector<vector<int>>& lists) {
     return oss.str();
 }
 
-void JsonBuilder::print_json() {
-    cout << "{\n";
-    cout << "  \"vec_doubles\" : " << serialize_doubles(data.vec_doubles) << ",\n";
-    cout << "  \"palabras\" : " << serialize_strings(data.palabras) << ",\n";
-    cout << "  \"listas\" : " << serialize_lists(data.listas) << "\n";
-    cout << "}\n";
+void Asociador::print_json() {
+    //se arma el JSON como un string
+    ostringstream oss;
+    oss << "{\n";
+    oss << "  \"vec_doubles\" : " << serializar_doubles(data.get_doubles()) << ",\n";
+    oss << "  \"palabras\" : " << serializar_strings(data.get_palabras()) << ",\n";
+    oss << "  \"listas\" : " << serializar_lists(data.get_listas()) << "\n";
+    oss << "}";
+
+    //se imprime por consola
+    cout << oss.str() << endl;
+
+    //se guarda en archivo
+    ofstream archivo("output.json");
+    if (archivo.is_open()) {
+        archivo << oss.str();
+        archivo.close();
+    } else {
+        cerr << "Error: no se pudo abrir el archivo para escritura." << endl;
+    }
 }

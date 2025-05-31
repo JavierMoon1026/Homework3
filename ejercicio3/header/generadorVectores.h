@@ -4,23 +4,27 @@
 
 using namespace std;
 
-class DataBuilder {
-public:
-    vector<double> vec_doubles;
+class Generador{
+private:
+    vector<double> doubles;
     vector<string> palabras;
     vector<vector<int>> listas;
 
-    // Método genérico para agregar elementos
+public:
     template <typename T>
-    void add(const T& value) {
-        if constexpr (is_same_v<T, double>) {
-            vec_doubles.push_back(value);
-        } else if constexpr (is_same_v<T, string>) {
+    void agregar(const T& value){
+        if constexpr(is_same_v<T, double>) {
+            doubles.push_back(value);
+        } else if constexpr(is_same_v<T, string>) {
             palabras.push_back(value);
-        } else {
-            throw invalid_argument("Tipo no soportado por DataBuilder::add()");
+        } else{
+            throw invalid_argument("Tipo no soportado por Generador");
         }
     }
 
-    void add_list(const vector<int>& lista);
+    void agregar_lista(const vector<int>& lista);
+
+    const vector<double>& get_doubles() const;
+    const vector<string>& get_palabras() const;
+    const vector<vector<int>>& get_listas() const;
 };

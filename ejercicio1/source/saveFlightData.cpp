@@ -5,7 +5,7 @@
 SaveFlightData::SaveFlightData() {}
 SaveFlightData::SaveFlightData(const Posicion& po, const Presion& pr) : posicion(po), presion(pr) {}
 
-void SaveFlightData::serializar(const string& filename) const {
+void SaveFlightData::serializar(const string& filename) const{
     ofstream out(filename, ios::binary);
     if (!out) {
         cerr << "Error abriendo el archivo para escritura\n";
@@ -16,7 +16,7 @@ void SaveFlightData::serializar(const string& filename) const {
     out.close();
 }
 
-void SaveFlightData::deserializar(const string& filename) {
+void SaveFlightData::deserializar(const string& filename){
     ifstream in(filename, ios::binary);
     if (!in) {
         cerr << "Error abriendo el archivo para lectura\n";
