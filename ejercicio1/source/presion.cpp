@@ -1,4 +1,4 @@
-#include "presion.h"
+#include "../header/presion.h"
 
 
 Presion::Presion() : presionEstatica(0), presionDinamica(0), MedicionBase(0.0f) {}

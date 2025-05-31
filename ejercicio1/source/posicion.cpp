@@ -20,6 +20,6 @@ void Posicion::deserializar(istream& in){
     in.read(reinterpret_cast<char*>(&latitud), sizeof(latitud));
     in.read(reinterpret_cast<char*>(&longitud), sizeof(longitud));
     in.read(reinterpret_cast<char*>(&altitud), sizeof(altitud));
-    tiempoMedicion = std::make_unique<float>();
+    tiempoMedicion = make_unique<float>();
     in.read(reinterpret_cast<char*>(tiempoMedicion.get()), sizeof(float));
 }
